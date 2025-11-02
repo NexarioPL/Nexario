@@ -1,98 +1,176 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nexario.pl — Minecraft Server</title>
-  <meta name="description" content="Oficjalna strona serwera Minecraft Nexario.pl. Start w styczniu — na początek BoxPvP, wkrótce kolejne tryby." />
-  <meta property="og:title" content="Nexario.pl — start w styczniu!" />
-  <meta property="og:description" content="Na start BoxPvP, później nowe tryby, eventy i współprace z twórcami." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://i.imgur.com/lGJhDS0.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexario.pl — Najlepszy Serwer Minecraft</title>
+  <meta name="description" content="Dołącz do Nexario.pl — najlepszego serwera Minecraft! BoxPvP, eventy, rangi i wyjątkowa społeczność.">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/lGJhDS0.png">
   <style>
-    :root{
-      --bg:#0b0c10;--panel:#111317;--muted:#a7acb5;--text:#f6f7fb;--brand:#f5c148;--brand-2:#cf8f2b;--ok:#24d26c;--warn:#ff7a48;
-      --card:#13161c;--card-2:#0f1217;--stroke:rgba(255,255,255,.08);--shadow:0 10px 30px rgba(0,0,0,.35)
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #0e0f10 0%, #0a0a0a 100%);
+      color: #fff;
+      height: 100vh;
+      overflow: hidden;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(800px 600px at 70% -10%, rgba(245,193,72,.15), transparent 60%),radial-gradient(600px 400px at -10% 20%, rgba(207,143,43,.12), transparent 60%), var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke)}
-    .nav{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:auto;padding:12px 24px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo img{width:52px;height:auto;filter:drop-shadow(0 0 10px rgba(245,193,72,.35))}
-    .logo b{font-weight:800;font-size:20px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--stroke);background:linear-gradient(180deg,var(--card),var(--card-2));cursor:pointer;transition:0.25s}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(245,193,72,.3)}
-    .btn.primary{background:linear-gradient(180deg,rgba(245,193,72,.3),rgba(207,143,43,.25));border-color:rgba(245,193,72,.35)}
-    .hero{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:auto;padding:80px 24px;align-items:center;gap:40px}
-    .hero-text h1{font-size:56px;line-height:1.1;background:linear-gradient(90deg,#ffe39b,#f5c148,#cf8f2b);-webkit-background-clip:text;color:transparent}
-    .hero-text p{font-size:18px;color:var(--muted);margin-top:16px}
-    .badge{display:inline-block;background:linear-gradient(90deg,#ffe39b,#f5c148);color:#101113;font-weight:700;padding:6px 12px;border-radius:999px;font-size:13px;margin-bottom:12px}
-    .hero img{width:100%;max-width:400px;filter:drop-shadow(0 20px 40px rgba(245,193,72,.25))}
-    .cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1100px;margin:60px auto;padding:0 24px}
-    .card{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--stroke);border-radius:16px;padding:20px;box-shadow:var(--shadow);transition:.3s}
-    .card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(245,193,72,.2)}
-    .card h3{margin-bottom:6px}
-    .card p{color:var(--muted)}
-    footer{text-align:center;color:var(--muted);border-top:1px solid var(--stroke);padding:24px 0;margin-top:60px}
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(6px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .menu-btn {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-btn div {
+      width: 25px;
+      height: 3px;
+      background: #f5c148;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 220px;
+      height: 100vh;
+      background: rgba(20, 20, 20, 0.98);
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+      padding-top: 70px;
+      transition: 0.4s;
+      z-index: 9;
+    }
+
+    nav.active {
+      left: 0;
+    }
+
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 25px;
+      font-size: 17px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #f5c148;
+      color: #000;
+    }
+
+    .hero {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero img {
+      width: 130px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #f5c148;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .buttons a {
+      background: #f5c148;
+      color: #000;
+      text-decoration: none;
+      padding: 12px 26px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background: #ffda70;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="nav">
-      <div class="logo">
-        <img src="https://i.imgur.com/lGJhDS0.png" alt="Logo Nexario"/>
-        <div>
-          <b>Nexario.pl</b>
-          <div style="font-size:12px;color:var(--muted)">Minecraft server</div>
-        </div>
-      </div>
-      <a class="btn primary" href="#discord">Dołącz na Discord</a>
+    <div class="menu-btn" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
+    <h2 style="color:#f5c148; font-weight:800;">Nexario.pl</h2>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <span class="badge">🚀 Start w styczniu</span>
-      <h1>Witaj na Nexario.pl</h1>
-      <p>Nowy serwer Minecraft tworzony przez graczy dla graczy. Na start <b>BoxPvP</b>, a w przyszłości kolejne tryby, eventy i współprace z twórcami.</p>
-      <div class="cta">
-        <a class="btn primary" id="copyIp">Skopiuj IP: Nexario.PL</a>
-        <a class="btn" href="#features">Dowiedz się więcej</a>
-      </div>
-    </div>
-    <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario"/>
-  </section>
+  <nav id="menu">
+    <a href="/">🏠 Strona główna</a>
+    <a href="/sklep">🛒 ItemShop</a>
+    <a href="/regulamin">📜 Regulamin</a>
+    <a href="https://dc.nexario.pl" target="_blank">💬 Discord</a>
+  </nav>
 
-  <section id="features" class="grid">
-    <div class="card">
-      <h3>⚔️ Balans i płynność</h3>
-      <p>Stawiamy na responsywną walkę i uczciwy balans między zestawami.</p>
-    </div>
-    <div class="card">
-      <h3>🏆 Rankingi i sezony</h3>
-      <p>Rywalizuj w krótkich sezonach i wspinaj się po rankingu!</p>
-    </div>
-    <div class="card">
-      <h3>🎉 Eventy i społeczność</h3>
-      <p>Regularne mini‑eventy, nagrody i zabawa w dobrym klimacie.</p>
+  <section class="hero">
+    <img src="https://i.imgur.com/lGJhDS0.png" alt="Nexario logo">
+    <h1>Witaj na Nexario.pl</h1>
+    <p>Najlepszy serwer Minecraft — start już w styczniu! 🔥</p>
+    <div class="buttons">
+      <a href="https://dc.nexario.pl" target="_blank">💬 Dołącz na Discord</a>
+      <a href="/sklep">🛒 Przejdź do ItemShopu</a>
     </div>
   </section>
 
   <footer>
-    © <span id="year"></span> Nexario.pl — Wszelkie prawa zastrzeżone. | Kontakt: <a href="mailto:nexario.pl@gmail.com" style="color:var(--brand)">nexario.pl@gmail.com</a>
+    © 2025 Nexario.pl — Wszelkie prawa zastrzeżone.
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const copyBtn=document.getElementById('copyIp');
-    copyBtn?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('nexario.pl');copyBtn.textContent='✅ Skopiowano IP!';setTimeout(()=>copyBtn.textContent='Skopiuj IP: nexario.pl',2000);}catch(e){alert('Skopiuj ręcznie: nexario.pl');}});
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
   </script>
 </body>
-
 </html>
