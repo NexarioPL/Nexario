@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulamin Minecraft — Nexario.pl</title>
+  <link rel="icon" type="image/png" href="https://i.imgur.com/lGJhDS0.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+    body{margin:0;font-family:'Inter',sans-serif;background:radial-gradient(circle at top,#0e0f10 0%,#0a0a0a 100%);color:#fff;}
+    header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(10,10,10,.6);backdrop-filter:blur(6px);position:fixed;width:100%;top:0;z-index:10;}
+    .menu-btn{cursor:pointer;display:flex;flex-direction:column;gap:5px;}
+    .menu-btn div{width:25px;height:3px;background:#f5c148;border-radius:2px;}
+    nav{position:fixed;top:0;left:-250px;width:220px;height:100vh;background:rgba(20,20,20,.98);box-shadow:2px 0 10px rgba(0,0,0,.5);padding-top:70px;transition:.4s;z-index:9;}
+    nav.active{left:0;}
+    nav a{display:block;color:#fff;text-decoration:none;padding:15px 25px;font-size:17px;transition:.3s;}
+    nav a:hover{background:#f5c148;color:#000;}
+    main{max-width:850px;margin:120px auto 60px;padding:0 20px;}
+    h1{color:#f5c148;text-align:center;font-weight:800;margin-bottom:30px;}
+    h2{color:#f5c148;margin-top:30px;}
+    ol{padding-left:25px;}
+    li{color:#ddd;line-height:1.7;font-size:16px;}
+    .buttons{text-align:center;margin-top:40px;}
+    .buttons a{display:inline-block;margin:10px;background:#f5c148;color:#000;padding:12px 28px;border-radius:10px;font-weight:600;text-decoration:none;transition:.3s;}
+    .buttons a:hover{background:#ffda70;transform:scale(1.05);}
+    footer{text-align:center;color:#666;font-size:14px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.1);}
+  </style>
+</head>
+<body>
+  <header><div class="menu-btn" onclick="toggleMenu()"><div></div><div></div><div></div></div><h2 style="color:#f5c148;font-weight:800;">Nexario.pl</h2></header>
+  <nav id="menu">
+    <a href="/">🏠 Strona główna</a>
+    <a href="https://sklep.nexario.pl">🛒 ItemShop</a>
+    <a href="/regulamin-mc.html">📜 Regulamin Minecraft</a>
+    <a href="/regulamin-dc.html">💬 Regulamin Discord</a>
+    <a href="https://dc.nexario.pl" target="_blank">🌐 Discord</a>
+  </nav>
+  <main>
+    <h1>🎮 Regulamin serwera Minecraft – Nexario.pl</h1>
+    <h2>§1. Postanowienia ogólne</h2>
+    <ol>
+      <li>Dołączając do serwera, akceptujesz niniejszy regulamin.</li>
+      <li>Administracja ma prawo do zmiany zasad w dowolnym momencie.</li>
+      <li>Nieznajomość regulaminu nie zwalnia z obowiązku jego przestrzegania.</li>
+      <li>Administracja ma ostateczne zdanie w każdej sytuacji.</li>
+      <li>Regulamin dotyczy wszystkich graczy — niezależnie od trybu, rangi i konta.</li>
+    </ol>
+    <h2>§2. Zachowanie i kultura</h2>
+    <ol>
+      <li>Zachowuj kulturę wobec graczy i administracji.</li>
+      <li>Nie obrażaj, nie prowokuj, nie spamuj i nie flooduj.</li>
+      <li>Nie publikuj treści nieodpowiednich (NSFW, polityka, religia).</li>
+      <li>Graj fair — nie psuj rozgrywki innym.</li>
+    </ol>
+    <h2>§3. Zakazy</h2>
+    <ol>
+      <li>Zakaz cheatów, makr, modów i skryptów dających przewagę.</li>
+      <li>Zakaz wykorzystywania błędów, glitchy i exploitów.</li>
+      <li>Zakaz reklamowania innych serwerów i stron.</li>
+      <li>Zakaz podszywania się pod administrację.</li>
+      <li>Zakaz handlu kontami i przedmiotami za realne pieniądze.</li>
+      <li>Zakaz griefingu i niszczenia cudzej własności (chyba że tryb na to pozwala).</li>
+      <li>Zakaz obraźliwych nicków, nazw i skinów.</li>
+    </ol>
+    <h2>§4. Sankcje</h2>
+    <ol>
+      <li>Administracja ma prawo karać według własnego uznania.</li>
+      <li>Kary mogą obejmować mute, kick, ban czasowy lub permanentny.</li>
+      <li>Gracz może odwołać się od kary na Discordzie: <a href="https://dc.nexario.pl" style="color:#f5c148;">dc.nexario.pl</a>.</li>
+    </ol>
+    <div class="buttons">
+      <a href="/">🏠 Powrót na stronę główną</a>
+      <a href="https://dc.nexario.pl" target="_blank">💬 Discord</a>
+    </div>
+  </main>
+  <footer>© 2025 Nexario.pl — Wszelkie prawa zastrzeżone.</footer>
+  <script>function toggleMenu(){document.getElementById('menu').classList.toggle('active');}</script>
+</body>
+</html>
