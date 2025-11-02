@@ -12,34 +12,30 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #0e0f10 0%, #0a0a0a 100%);
+      background-color: #0a0a0a;
       color: #fff;
-      height: 100vh;
-      overflow-x: hidden;
-    }
-
-    header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      padding: 15px 30px;
-      background: rgba(10, 10, 10, 0.6);
-      backdrop-filter: blur(6px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 10;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
     }
 
     .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 25px;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       gap: 5px;
+      z-index: 100;
     }
 
     .menu-btn div {
-      width: 25px;
+      width: 26px;
       height: 3px;
       background: #f5c148;
       border-radius: 2px;
@@ -49,14 +45,16 @@
     nav {
       position: fixed;
       top: 0;
-      left: -250px;
-      width: 220px;
-      height: 100vh;
-      background: rgba(20, 20, 20, 0.98);
-      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+      left: -230px;
+      width: 200px;
+      height: 100%;
+      background-color: #141414;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
       padding-top: 70px;
       transition: 0.4s;
-      z-index: 9;
+      z-index: 99;
     }
 
     nav.active {
@@ -64,11 +62,11 @@
     }
 
     nav a {
-      display: block;
       color: #fff;
       text-decoration: none;
-      padding: 15px 25px;
-      font-size: 17px;
+      padding: 15px 20px;
+      display: block;
+      font-size: 16px;
       transition: 0.3s;
     }
 
@@ -77,53 +75,36 @@
       color: #000;
     }
 
-    .hero {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 700px;
+    img {
+      width: 120px;
+      margin-bottom: 20px;
     }
 
-    .hero img {
-      width: 150px;
-      margin-bottom: 25px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 800;
+    h1 {
+      font-size: 36px;
       color: #f5c148;
-      margin: 0;
+      font-weight: 800;
+      margin: 10px 0 5px;
     }
 
-    .hero p {
-      font-size: 18px;
-      margin-top: 10px;
+    p {
       color: #ccc;
+      font-size: 18px;
+      margin-bottom: 30px;
     }
 
     .buttons {
-      margin-top: 40px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .buttons a {
       background: #f5c148;
       color: #000;
       text-decoration: none;
-      padding: 12px 26px;
+      padding: 12px 25px;
       border-radius: 10px;
       font-weight: 600;
       transition: 0.3s;
@@ -137,52 +118,37 @@
     footer {
       position: absolute;
       bottom: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 14px;
       color: #666;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 30px; }
-      .hero p { font-size: 16px; }
-      .buttons a { padding: 10px 20px; font-size: 15px; }
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="menu-btn" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <h2 style="color:#f5c148; font-weight:800;">Nexario.pl</h2>
-  </header>
+  <div class="menu-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
   <nav id="menu">
     <a href="/">🏠 Strona główna</a>
     <a href="https://sklep.nexario.pl">🛒 ItemShop</a>
-    <a href="/regulamin-mc.html">📜 Regulamin Minecraft</a>
-    <a href="/regulamin-dc.html">💬 Regulamin Discord</a>
+    <a href="regulamin-mc.html">📜 Regulamin Minecraft</a>
+    <a href="regulamin-dc.html">💬 Regulamin Discord</a>
     <a href="https://dc.nexario.pl" target="_blank">🌐 Discord</a>
   </nav>
 
-  <section class="hero">
-    <img src="https://i.imgur.com/lGJhDS0.png" alt="Nexario logo">
-    <h1>Witaj na Nexario.pl</h1>
-    <p>Najlepszy serwer Minecraft — start już w styczniu 2025! 🔥<br>Dołącz do nas i stań się częścią społeczności Nexario!</p>
-    <div class="buttons">
-      <a href="https://dc.nexario.pl" target="_blank">💬 Dołącz na Discord</a>
-      <a href="https://sklep.nexario.pl">🛒 Przejdź do ItemShopu</a>
-      <a href="/regulamin-mc.html">📜 Zasady Minecraft</a>
-    </div>
-  </section>
+  <img src="https://i.imgur.com/lGJhDS0.png" alt="Logo Nexario">
+  <h1>Witaj na Nexario.pl</h1>
+  <p>Najlepszy serwer Minecraft — start już w styczniu! 🔥</p>
 
-  <footer>
-    © 2025 Nexario.pl — Wszelkie prawa zastrzeżone.
-  </footer>
+  <div class="buttons">
+    <a href="https://dc.nexario.pl" target="_blank">💬 Dołącz na Discord</a>
+    <a href="https://sklep.nexario.pl" target="_blank">🛒 Przejdź do ItemShopu</a>
+  </div>
+
+  <footer>© 2025 Nexario.pl — Wszelkie prawa zastrzeżone.</footer>
 
   <script>
     function toggleMenu() {
