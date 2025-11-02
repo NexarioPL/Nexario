@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nexario.PL - Najlepszy Serwer Minecraft Na Świecie!!!</title>
   <meta name="description" content="Oficjalna strona serwera Minecraft Nexario.pl. Start w styczniu 2026 — na początek BoxPvP, wkrótce kolejne tryby." />
-  <meta property="og:title" content="Nexario.PL - Najlepszy Serwer Minecraft Na Świecie!!!" />
-  <meta property="og:description" content="Dołącz do Nexario.pl — BoxPvP, eventy, rangi i wspaniała społeczność!" />
-  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://i.imgur.com/lGJhDS0.png" />
   <link rel="icon" href="https://i.imgur.com/lGJhDS0.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -91,7 +88,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       transition: 0.3s;
     }
     .logo img {
@@ -157,6 +154,7 @@
       gap: 12px;
       margin-top: 24px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     /* FEATURES */
@@ -198,12 +196,13 @@
         text-align: center;
       }
       .hero img {
-        order: -1; /* Lew nad napisem */
+        order: -1;
         margin: 0 auto 20px auto;
-        max-width: 220px;
+        max-width: 180px;
       }
       .hero-text h1 { font-size: 42px; }
       .hero-text p { font-size: 16px; }
+      .cta { justify-content: center; }
     }
 
     @media (max-width: 600px) {
@@ -211,9 +210,10 @@
         padding: 10px 14px;
       }
       .logo {
-        transform: translateX(18px);
+        transform: translateX(20px);
       }
-      .logo img { width: 40px; }
+      .logo img { width: 34px; }
+      .logo b { font-size: 17px; }
       .btn {
         padding: 6px 10px;
         font-size: 13px;
@@ -252,7 +252,7 @@
 
   <section class="hero">
     <div class="hero-text">
-      <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario" class="mobile-lion" style="display:none;">
+      <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario" class="mobile-lion">
       <span class="badge">🚀 Start w styczniu 2026</span>
       <h1>Witaj na Nexario.pl</h1>
       <p>Nowy serwer Minecraft tworzony przez graczy dla graczy. Na start <b>BoxPvP</b>, a w przyszłości kolejne tryby, eventy i współprace z twórcami.</p>
@@ -261,7 +261,6 @@
         <a class="btn" href="#features">Dowiedz się więcej</a>
       </div>
     </div>
-    <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario" class="hero-lion">
   </section>
 
   <section id="features" class="grid">
@@ -302,4 +301,3 @@
   </script>
 </body>
 </html>
-
