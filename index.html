@@ -10,8 +10,6 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://i.imgur.com/lGJhDS0.png" />
   <link rel="icon" href="https://i.imgur.com/lGJhDS0.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -25,6 +23,14 @@
                   radial-gradient(600px 400px at -10% 20%, rgba(207,143,43,.12), transparent 60%), var(--bg);
       color: var(--text);
       overflow-x: hidden;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:visited, a:hover, a:active {
+      color: inherit;
+      text-decoration: none;
     }
 
     /* --- MENU --- */
@@ -62,7 +68,6 @@
     nav.active { left: 0; }
     nav a {
       color: #fff;
-      text-decoration: none;
       padding: 15px 25px;
       font-size: 16px;
       transition: 0.3s;
@@ -113,6 +118,8 @@
       background: linear-gradient(180deg, var(--card), var(--card-2));
       cursor: pointer;
       transition: 0.25s;
+      color: var(--text);
+      white-space: nowrap;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245,193,72,.3); }
     .btn.primary {
@@ -195,15 +202,41 @@
       padding: 24px 0;
       margin-top: 60px;
     }
+
+    /* 📱 RESPONSYWNOŚĆ */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero img {
+        margin: 0 auto;
+      }
+      .hero-text h1 {
+        font-size: 42px;
+      }
+      .hero-text p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        padding: 10px 18px;
+      }
+      .logo img { width: 40px; }
+      .btn { padding: 8px 12px; font-size: 14px; }
+      .hero-text h1 { font-size: 36px; }
+      .badge { font-size: 12px; padding: 4px 10px; }
+      .menu-btn { top: 14px; left: 14px; }
+    }
   </style>
 </head>
 <body>
-  <!-- MENU BUTTON -->
   <div class="menu-btn" onclick="toggleMenu()">
     <div></div><div></div><div></div>
   </div>
 
-  <!-- SIDE MENU -->
   <nav id="menu">
     <a href="/">🏠 Strona główna</a>
     <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
@@ -212,7 +245,6 @@
     <a href="https://dc.nexario.pl" target="_blank">🌐 Discord</a>
   </nav>
 
-  <!-- HEADER -->
   <header>
     <div class="nav">
       <div class="logo">
@@ -226,7 +258,6 @@
     </div>
   </header>
 
-  <!-- MAIN HERO -->
   <section class="hero">
     <div class="hero-text">
       <span class="badge">🚀 Start w styczniu 2026</span>
@@ -240,7 +271,6 @@
     <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario"/>
   </section>
 
-  <!-- FEATURES -->
   <section id="features" class="grid">
     <div class="card">
       <h3>⚔️ Balans i płynność</h3>
