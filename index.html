@@ -15,7 +15,7 @@
       background: radial-gradient(circle at top, #0e0f10 0%, #0a0a0a 100%);
       color: #fff;
       height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     header {
@@ -83,15 +83,23 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 700px;
     }
 
     .hero img {
-      width: 130px;
+      width: 150px;
       margin-bottom: 25px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .hero h1 {
-      font-size: 40px;
+      font-size: 42px;
       font-weight: 800;
       color: #f5c148;
       margin: 0;
@@ -106,6 +114,7 @@
     .buttons {
       margin-top: 40px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
@@ -133,6 +142,12 @@
       font-size: 14px;
       color: #666;
     }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .hero p { font-size: 16px; }
+      .buttons a { padding: 10px 20px; font-size: 15px; }
+    }
   </style>
 </head>
 <body>
@@ -148,18 +163,20 @@
 
   <nav id="menu">
     <a href="/">🏠 Strona główna</a>
-    <a href="/sklep">🛒 ItemShop</a>
-    <a href="/regulamin">📜 Regulamin</a>
-    <a href="https://dc.nexario.pl" target="_blank">💬 Discord</a>
+    <a href="https://sklep.nexario.pl">🛒 ItemShop</a>
+    <a href="/regulamin-mc.html">📜 Regulamin Minecraft</a>
+    <a href="/regulamin-dc.html">💬 Regulamin Discord</a>
+    <a href="https://dc.nexario.pl" target="_blank">🌐 Discord</a>
   </nav>
 
   <section class="hero">
     <img src="https://i.imgur.com/lGJhDS0.png" alt="Nexario logo">
     <h1>Witaj na Nexario.pl</h1>
-    <p>Najlepszy serwer Minecraft — start już w styczniu! 🔥</p>
+    <p>Najlepszy serwer Minecraft — start już w styczniu 2025! 🔥<br>Dołącz do nas i stań się częścią społeczności Nexario!</p>
     <div class="buttons">
       <a href="https://dc.nexario.pl" target="_blank">💬 Dołącz na Discord</a>
-      <a href="/sklep">🛒 Przejdź do ItemShopu</a>
+      <a href="https://sklep.nexario.pl">🛒 Przejdź do ItemShopu</a>
+      <a href="/regulamin-mc.html">📜 Zasady Minecraft</a>
     </div>
   </section>
 
