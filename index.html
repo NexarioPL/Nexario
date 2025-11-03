@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nexario.PL - Najlepszy Serwer Minecraft Na Świecie!!!</title>
-  <meta name="description" content="Oficjalna strona serwera Minecraft Nexario.pl. Start w styczniu 2026 — na początek BoxPvP, wkrótce kolejne tryby." />
-  <meta property="og:title" content="Nexario.PL - Najlepszy Serwer Minecraft Na Świecie!!!" />
-  <meta property="og:description" content="Dołącz do Nexario.pl — BoxPvP, eventy, rangi i wspaniała społeczność!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://i.imgur.com/lGJhDS0.png" />
-  <link rel="icon" href="https://i.imgur.com/lGJhDS0.png" type="image/png" />
+  <title>Nexario.PL — Najlepszy Serwer Minecraft Na Świecie!!!</title>
+  <meta name="description" content="Oficjalna strona serwera Minecraft Nexario.pl. Start w styczniu 2026 — na początek BoxPvP, wkrótce kolejne tryby.">
+  <meta property="og:title" content="Nexario.PL — Najlepszy Serwer Minecraft Na Świecie!!!">
+  <meta property="og:description" content="Na start BoxPvP, później nowe tryby, eventy i współprace z twórcami.">
+  <meta property="og:image" content="https://i.imgur.com/lGJhDS0.png">
+  <link rel="icon" href="https://i.imgur.com/lGJhDS0.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg:#0b0c10;--panel:#111317;--muted:#a7acb5;--text:#f6f7fb;--brand:#f5c148;--brand-2:#cf8f2b;
@@ -18,179 +18,247 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body {
-      font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
       background: radial-gradient(800px 600px at 70% -10%, rgba(245,193,72,.15), transparent 60%),
                   radial-gradient(600px 400px at -10% 20%, rgba(207,143,43,.12), transparent 60%), var(--bg);
       color: var(--text);
       overflow-x: hidden;
     }
-    a { color: inherit; text-decoration: none; }
-    a:visited, a:hover, a:active { color: inherit; text-decoration: none; }
 
-    /* ===== HEADER (NOWY) ===== */
+    /* === GŁÓWNY PASEK === */
     header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(11,12,16,.8);
+      background: rgba(11,12,16,.85);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--stroke);
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
+
     .topbar {
-      max-width: 1100px; margin: 0 auto;
-      height: 68px; /* wysokość paska */
-      display: grid;
-      grid-template-columns: 1fr auto 1fr; /* lewo | środek | prawo */
+      max-width: 1150px;
+      margin: 0 auto;
+      height: 76px;
+      display: flex;
       align-items: center;
-      padding: 0 20px;
-      gap: 10px;
+      justify-content: space-between;
+      padding: 0 50px;
+      gap: 40px;
     }
 
-    /* Lewo: logo */
+    /* Logo */
     .logo {
-      display: flex; align-items: center; gap: 10px;
-      justify-self: start;
-      transform: translateX(10px); /* lekkie w lewo/prawo (desktop) */
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
-    .logo img { width: 46px; height: auto; filter: drop-shadow(0 0 10px rgba(245,193,72,.35)); }
-    .logo b { font-weight: 800; font-size: 20px; line-height: 1; }
-    .logo small { display:block; font-size:12px; color:var(--muted); }
+    .logo img {
+      width: 50px;
+      height: auto;
+      filter: drop-shadow(0 0 10px rgba(245,193,72,.35));
+    }
+    .logo b {
+      font-weight: 800;
+      font-size: 21px;
+    }
+    .logo small {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+    }
 
-    /* Środek: linki (desktop only) */
+    /* Menu */
     .nav-links {
-      display: flex; align-items: center; justify-content: center;
-      gap: 18px; font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      font-weight: 600;
     }
     .nav-links a {
-      padding: 8px 10px; border-radius: 10px; transition: .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: .25s;
+      white-space: nowrap;
+      color: var(--text);
+      text-decoration: none;
     }
-    .nav-links a:hover { background: rgba(245,193,72,.18); }
+    .nav-links a:hover {
+      background: rgba(245,193,72,.18);
+      transform: translateY(-1px);
+    }
 
-    /* Prawo: przycisk Discord */
-    .right {
-      display: flex; justify-content: end; align-items: center;
-      gap: 10px;
-    }
+    /* Przyciski */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 16px; border-radius: 12px;
-      border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, var(--card), var(--card-2));
-      cursor: pointer; transition: .25s; color: var(--text); white-space: nowrap;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 16px;
+      height:42px;
+      line-height:1;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      color:var(--text);
+      font-weight:600;
+      white-space:nowrap;
+      cursor:pointer;
+      transition:.25s;
+      text-decoration:none;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245,193,72,.3); }
-    .btn.primary {
-      background: linear-gradient(180deg, rgba(245,193,72,.3), rgba(207,143,43,.25));
-      border-color: rgba(245,193,72,.35);
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(245,193,72,.3);
+    }
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(245,193,72,.35), rgba(207,143,43,.25));
+      border-color:rgba(245,193,72,.4);
     }
 
-    /* ===== HAMBURGER (tylko mobile) ===== */
-    .hamburger {
-      display: none; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-      flex-direction: column; gap: 5px; cursor: pointer; z-index: 100;
+    .right{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:10px;
     }
-    .hamburger div { width: 24px; height: 3px; background: var(--brand); border-radius: 2px; }
 
-    /* ===== SIDE NAV (mobile menu) ===== */
-    nav#side {
-      position: fixed; top: 0; left: -260px; width: 240px; height: 100vh;
-      background: rgba(17,19,23,.98); box-shadow: var(--shadow);
-      padding-top: 78px; transition: .35s; z-index: 999;
-      display: flex; flex-direction: column;
-    }
-    nav#side.active { left: 0; }
-    nav#side a { padding: 14px 22px; font-size: 16px; }
-    nav#side a:hover { background: var(--brand); color: #000; }
-
-    /* ===== HERO / RESZTA STRONY (bez zmian) ===== */
+    /* === HERO === */
     .hero {
-      max-width: 1100px; margin: 0 auto; padding: 70px 24px;
-      display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 24px;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-text h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      background: linear-gradient(90deg, #ffe39b, #f5c148, #cf8f2b);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-text p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-top: 16px;
     }
     .badge {
-      display:inline-block; background: linear-gradient(90deg,#ffe39b,#f5c148); color:#101113;
-      font-weight:700; padding:6px 12px; border-radius:999px; font-size:13px; margin-bottom:12px;
+      display: inline-block;
+      background: linear-gradient(90deg, #ffe39b, #f5c148);
+      color: #101113;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 12px;
     }
-    .hero h1 {
-      font-size: 56px; line-height: 1.1;
-      background: linear-gradient(90deg,#ffe39b,#f5c148,#cf8f2b); -webkit-background-clip:text; color: transparent;
+    .hero img {
+      width: 100%;
+      max-width: 400px;
+      filter: drop-shadow(0 20px 40px rgba(245,193,72,.25));
     }
-    .hero p { font-size:18px; color:var(--muted); margin-top:16px; }
-    .hero img { width:100%; max-width:400px; filter: drop-shadow(0 20px 40px rgba(245,193,72,.25)); }
-    .cta { display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; justify-content:center; }
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:16px; max-width:1100px; margin:60px auto; padding:0 24px; }
-    .card { background:linear-gradient(180deg,var(--card),var(--card-2)); border:1px solid var(--stroke); border-radius:16px; padding:20px; box-shadow:var(--shadow); transition:.3s; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(245,193,72,.2); }
-    .card h3 { margin-bottom:6px; }
-    .card p { color:var(--muted); }
+    /* === FEATURES === */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--card), var(--card-2));
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: .3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(245,193,72,.2);
+    }
+    .card h3 { margin-bottom: 6px; }
+    .card p { color: var(--muted); }
 
-    footer { text-align:center; color:var(--muted); border-top:1px solid var(--stroke); padding:24px 0; margin-top:60px; }
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--stroke);
+      padding: 24px 0;
+      margin-top: 60px;
+    }
 
-    /* ===== RESPONSYWNOŚĆ ===== */
-    @media (max-width: 1000px){
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero img { order:-1; margin: 0 auto 18px; max-width: 200px; }
-      .hero h1 { font-size: 42px; }
-      .hero p { font-size: 16px; }
+    /* === RESPONSYWNOŚĆ === */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
+      }
+      .hero img {
+        order: -1;
+        margin: 0 auto 20px;
+        max-width: 200px;
+      }
+      .topbar {
+        padding: 0 20px;
+        height: 68px;
+      }
+      .logo img {
+        width: 42px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .right .btn.primary {
+        font-size: 14px;
+        padding: 8px 14px;
+      }
     }
-    @media (max-width: 860px){
-      .nav-links { display: none; }         /* chowamy linki na środku */
-      .hamburger { display: flex; }          /* pokazujemy hamburger */
-      .logo { justify-self: center; transform: translateX(0); } /* logo na środek */
-      .right { display: none; }              /* chowamy przycisk Discord na mobile */
-      .topbar { grid-template-columns: 1fr; height: 62px; } /* niższy pasek na telefonie */
-    }
-    @media (max-width: 600px){
-      .logo img { width: 38px; }
-      .logo b { font-size: 18px; }
-      .hero { padding-top: 56px; padding-bottom: 44px; } /* mniejsze odstępy góra/dół na mobile */
-    }
+
   </style>
 </head>
 <body>
 
-  <!-- Pasek (logo lewo, linki środek, Discord prawo) -->
   <header>
     <div class="topbar">
-      <!-- hamburger (tylko mobile) -->
-      <div class="hamburger" id="hamburger" aria-label="Otwórz menu" role="button" tabindex="0">
-        <div></div><div></div><div></div>
-      </div>
-
-      <!-- logo -->
       <div class="logo">
-        <img src="https://i.imgur.com/lGJhDS0.png" alt="Logo Nexario"/>
+        <img src="https://i.imgur.com/lGJhDS0.png" alt="Logo Nexario">
         <div>
           <b>Nexario.pl</b>
           <small>Minecraft server</small>
         </div>
       </div>
 
-      <!-- linki (desktop) -->
       <nav class="nav-links" aria-label="Główne">
         <a href="/">🏠 Strona główna</a>
         <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
         <a href="regulamin-mc.html">📜 Regulamin MC</a>
         <a href="regulamin-dc.html">💬 Regulamin DC</a>
-        <a href="https://dc.nexario.pl" target="_blank">🌐 Discord</a>
       </nav>
 
-      <!-- prawa: przycisk Discord (desktop) -->
       <div class="right">
-        <a class="btn primary" href="https://dc.nexario.pl" target="_blank">💬 Dołącz na Discord</a>
+        <a href="https://dc.nexario.pl" target="_blank" class="btn primary">💬 Dołącz na Discord</a>
       </div>
     </div>
   </header>
 
-  <!-- Wysuwane menu boczne (mobile) -->
-  <nav id="side">
-    <a href="/">🏠 Strona główna</a>
-    <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
-    <a href="regulamin-mc.html">📜 Regulamin Minecraft</a>
-    <a href="regulamin-dc.html">💬 Regulamin Discord</a>
-    <a href="https://dc.nexario.pl" target="_blank">🌐 Discord</a>
-  </nav>
-
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
       <span class="badge">🚀 Start w styczniu 2026</span>
@@ -201,42 +269,42 @@
         <a class="btn" href="#features">Dowiedz się więcej</a>
       </div>
     </div>
-    <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario"/>
+    <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario">
   </section>
 
-  <!-- FEATURES -->
   <section id="features" class="grid">
-    <div class="card"><h3>⚔️ Balans i płynność</h3><p>Stawiamy na responsywną walkę i uczciwy balans między zestawami.</p></div>
-    <div class="card"><h3>🏆 Rankingi i sezony</h3><p>Rywalizuj w krótkich sezonach i wspinaj się po rankingu!</p></div>
-    <div class="card"><h3>🎉 Eventy i społeczność</h3><p>Regularne mini-eventy, nagrody i zabawa w dobrym klimacie.</p></div>
+    <div class="card">
+      <h3>⚔️ Balans i płynność</h3>
+      <p>Stawiamy na responsywną walkę i uczciwy balans między zestawami.</p>
+    </div>
+    <div class="card">
+      <h3>🏆 Rankingi i sezony</h3>
+      <p>Rywalizuj w krótkich sezonach i wspinaj się po rankingu!</p>
+    </div>
+    <div class="card">
+      <h3>🎉 Eventy i społeczność</h3>
+      <p>Regularne mini-eventy, nagrody i zabawa w dobrym klimacie.</p>
+    </div>
   </section>
 
   <footer>
-    © <span id="year"></span> Nexario.pl — Wszelkie prawa zastrzeżone. | Kontakt:
+    © <span id="year"></span> Nexario.pl — Wszelkie prawa zastrzeżone. | Kontakt: 
     <a href="mailto:nexario.pl@gmail.com" style="color:var(--brand)">nexario.pl@gmail.com</a>
   </footer>
 
   <script>
-    // Rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Kopiowanie IP
     const copyBtn = document.getElementById('copyIp');
     copyBtn?.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText('nexario.pl');
-        const txt = copyBtn.textContent;
         copyBtn.textContent = '✅ Skopiowano IP!';
-        setTimeout(() => copyBtn.textContent = txt, 1800);
-      } catch { alert('Skopiuj ręcznie: nexario.pl'); }
+        setTimeout(() => copyBtn.textContent = 'Skopiuj IP: nexario.pl', 2000);
+      } catch (e) {
+        alert('Skopiuj ręcznie: nexario.pl');
+      }
     });
-
-    // Hamburger / Side menu (mobile)
-    const side = document.getElementById('side');
-    const burger = document.getElementById('hamburger');
-    const toggleMenu = () => side.classList.toggle('active');
-    burger.addEventListener('click', toggleMenu);
-    burger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(); });
   </script>
+
 </body>
 </html>
