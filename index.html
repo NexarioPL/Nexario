@@ -44,6 +44,7 @@
       justify-content: space-between;
       padding: 0 50px;
       gap: 40px;
+      position: relative;
     }
 
     /* Logo */
@@ -139,6 +140,7 @@
       cursor:pointer;
       transition:.2s;
       gap:5px;
+      z-index: 10;
     }
     .hamburger span{
       width:20px;height:2px;background:var(--brand);
@@ -263,19 +265,19 @@
       .topbar {
         padding: 0 16px;
         height: 68px;
-        justify-content: space-between;
+        justify-content: center;
       }
       .logo {
-        flex: 1;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
         align-items: center;
-        justify-content: center; /* wyśrodkowanie logo */
+        justify-content: center;
       }
-      .logo img {
-        width: 42px;
-      }
-      .nav-links { display: none; }     
-      .hamburger { display: flex; }
+      .logo img { width: 42px; }
+      .hamburger { display: flex; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); }
+      .nav-links { display: none; }
       .right .btn.primary { display: none; }
     }
   </style>
@@ -331,7 +333,6 @@
     <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario">
   </section>
 
-  <!-- Sekcja bloczków -->
   <section id="features" class="grid">
     <div class="card">
       <h3>⚔️ Balans i płynność</h3>
