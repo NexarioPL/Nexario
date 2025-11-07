@@ -133,23 +133,18 @@
       border-radius:10px;
       border:1px solid var(--stroke);
       background:linear-gradient(180deg,var(--card),var(--card-2));
+      flex-direction:column; /* <- naprawia pionowy układ */
       align-items:center;justify-content:center;
       cursor:pointer;transition:.2s;
+      gap:5px;
     }
-    .hamburger:focus{outline:2px solid rgba(245,193,72,.4)}
-    .hamburger span,
-    .hamburger::before,
-    .hamburger::after{
-      content:"";
-      display:block;
+    .hamburger span{
       width:20px;height:2px;background:var(--brand);
       border-radius:2px;transition:.25s;
     }
-    .hamburger::before{transform:translateY(-6px)}
-    .hamburger::after{transform:translateY(6px)}
-    .hamburger.active span{opacity:0}
-    .hamburger.active::before{transform:rotate(45deg)}
-    .hamburger.active::after{transform:rotate(-45deg)}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 
     /* === MENU MOBILNE === */
     .backdrop{
@@ -172,7 +167,6 @@
       color:var(--text);background:linear-gradient(180deg,var(--card),var(--card-2));
       border:1px solid var(--stroke);
     }
-    .mobile-menu a:active{transform:translateY(1px)}
 
     /* === HERO === */
     .hero {
@@ -219,30 +213,6 @@
       justify-content: center;
     }
 
-    /* === FEATURES === */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-      gap: 16px;
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 24px;
-    }
-    .card {
-      background: linear-gradient(180deg, var(--card), var(--card-2));
-      border: 1px solid var(--stroke);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-      transition: .3s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(245,193,72,.2);
-    }
-    .card h3 { margin-bottom: 6px; }
-    .card p { color: var(--muted); }
-
     /* === FOOTER === */
     footer {
       text-align: center;
@@ -271,20 +241,16 @@
       .logo img {
         width: 42px;
       }
-      .nav-links { display: none; }     /* ukryj desktopowe linki */
-      .hamburger { display: inline-flex; } /* pokaż burger */
-      .right .btn.primary {
-        font-size: 14px;
-        padding: 8px 14px;
-      }
+      .nav-links { display: none; }     
+      .hamburger { display: flex; } /* <- poprawiony wygląd */
+      .right .btn.primary { display: none; } /* <- ukrywa przycisk na telefonie */
     }
   </style>
 </head>
 <body>
 
-  <!-- Backdrop i menu mobilne -->
   <div class="backdrop" id="backdrop"></div>
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobilne">
+  <nav class="mobile-menu" id="mobileMenu">
     <a href="/">🏠 Strona główna</a>
     <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
     <a href="regulamin-mc.html">📜 Regulamin MC</a>
@@ -294,8 +260,9 @@
 
   <header>
     <div class="topbar">
-      <!-- hamburger – pojawia się na telefonie -->
-      <button class="hamburger" id="hamburger" aria-label="Otwórz menu" aria-expanded="false"><span></span></button>
+      <button class="hamburger" id="hamburger" aria-label="Otwórz menu">
+        <span></span><span></span><span></span>
+      </button>
 
       <div class="logo">
         <img src="https://i.imgur.com/lGJhDS0.png" alt="Logo Nexario">
@@ -305,7 +272,7 @@
         </div>
       </div>
 
-      <nav class="nav-links" aria-label="Główne">
+      <nav class="nav-links">
         <a href="/">🏠 Strona główna</a>
         <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
         <a href="regulamin-mc.html">📜 Regulamin MC</a>
@@ -331,28 +298,12 @@
     <img src="https://i.imgur.com/lGJhDS0.png" alt="Lew Nexario">
   </section>
 
-  <section id="features" class="grid">
-    <div class="card">
-      <h3>⚔️ Balans i płynność</h3>
-      <p>Stawiamy na responsywną walkę i uczciwy balans między zestawami.</p>
-    </div>
-    <div class="card">
-      <h3>🏆 Rankingi i sezony</h3>
-      <p>Rywalizuj w krótkich sezonach i wspinaj się po rankingu!</p>
-    </div>
-    <div class="card">
-      <h3>🎉 Eventy i społeczność</h3>
-      <p>Regularne mini-eventy, nagrody i zabawa w dobrym klimacie.</p>
-    </div>
-  </section>
-
   <footer>
     © <span id="year"></span> Nexario.pl — Wszelkie prawa zastrzeżone. | Kontakt: 
     <a href="mailto:nexario.pl@gmail.com" style="color:var(--brand)">nexario.pl@gmail.com</a>
   </footer>
 
   <script>
-    // Rok w stopce + kopiuj IP
     document.getElementById('year').textContent = new Date().getFullYear();
     const copyBtn = document.getElementById('copyIp');
     copyBtn?.addEventListener('click', async () => {
@@ -365,21 +316,18 @@
       }
     });
 
-    // Hamburger & menu mobilne
     const burger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const backdrop = document.getElementById('backdrop');
 
     function openMenu(){
       burger.classList.add('active');
-      burger.setAttribute('aria-expanded','true');
       mobileMenu.classList.add('open');
       backdrop.classList.add('show');
       document.body.style.overflow = 'hidden';
     }
     function closeMenu(){
       burger.classList.remove('active');
-      burger.setAttribute('aria-expanded','false');
       mobileMenu.classList.remove('open');
       backdrop.classList.remove('show');
       document.body.style.overflow = '';
@@ -389,7 +337,6 @@
       if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
     });
     backdrop.addEventListener('click', closeMenu);
-    // zamykanie po kliknięciu w link
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   </script>
 
