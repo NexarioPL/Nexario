@@ -67,7 +67,7 @@
       color: var(--muted);
     }
 
-    /* Menu */
+    /* Menu (desktop) */
     .nav-links {
       display: flex;
       align-items: center;
@@ -125,6 +125,54 @@
       justify-content:flex-end;
       gap:10px;
     }
+
+    /* === HAMBURGER (mobile) === */
+    .hamburger{
+      display:none; /* desktop off */
+      width:44px;height:44px;
+      border-radius:10px;
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      align-items:center;justify-content:center;
+      cursor:pointer;transition:.2s;
+    }
+    .hamburger:focus{outline:2px solid rgba(245,193,72,.4)}
+    .hamburger span,
+    .hamburger::before,
+    .hamburger::after{
+      content:"";
+      display:block;
+      width:20px;height:2px;background:var(--brand);
+      border-radius:2px;transition:.25s;
+    }
+    .hamburger::before{transform:translateY(-6px)}
+    .hamburger::after{transform:translateY(6px)}
+    .hamburger.active span{opacity:0}
+    .hamburger.active::before{transform:rotate(45deg)}
+    .hamburger.active::after{transform:rotate(-45deg)}
+
+    /* === MENU MOBILNE === */
+    .backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,.45);
+      opacity:0;pointer-events:none;transition:.25s;z-index:998;
+    }
+    .backdrop.show{opacity:1;pointer-events:auto}
+    .mobile-menu{
+      position:fixed;top:0;left:0;height:100vh;width:78%;
+      max-width:340px;background:#111317;border-right:1px solid var(--stroke);
+      transform:translateX(-100%);transition:.28s ease;z-index:999;
+      padding:82px 18px 18px 18px;
+      display:flex;flex-direction:column;gap:10px;
+      box-shadow:0 10px 30px rgba(0,0,0,.45);
+    }
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-menu a{
+      display:flex;align-items:center;gap:10px;
+      padding:14px 12px;border-radius:12px;text-decoration:none;
+      color:var(--text);background:linear-gradient(180deg,var(--card),var(--card-2));
+      border:1px solid var(--stroke);
+    }
+    .mobile-menu a:active{transform:translateY(1px)}
 
     /* === HERO === */
     .hero {
@@ -217,27 +265,38 @@
         max-width: 200px;
       }
       .topbar {
-        padding: 0 20px;
+        padding: 0 16px;
         height: 68px;
       }
       .logo img {
         width: 42px;
       }
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }     /* ukryj desktopowe linki */
+      .hamburger { display: inline-flex; } /* pokaż burger */
       .right .btn.primary {
         font-size: 14px;
         padding: 8px 14px;
       }
     }
-
   </style>
 </head>
 <body>
 
+  <!-- Backdrop i menu mobilne -->
+  <div class="backdrop" id="backdrop"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobilne">
+    <a href="/">🏠 Strona główna</a>
+    <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
+    <a href="regulamin-mc.html">📜 Regulamin MC</a>
+    <a href="regulamin-dc.html">💬 Regulamin DC</a>
+    <a href="https://discord.gg/VM4bPqwFyc" target="_blank">💬 Discord</a>
+  </nav>
+
   <header>
     <div class="topbar">
+      <!-- hamburger – pojawia się na telefonie -->
+      <button class="hamburger" id="hamburger" aria-label="Otwórz menu" aria-expanded="false"><span></span></button>
+
       <div class="logo">
         <img src="https://i.imgur.com/lGJhDS0.png" alt="Logo Nexario">
         <div>
@@ -254,7 +313,7 @@
       </nav>
 
       <div class="right">
-        <a href="https://dc.nexario.pl" target="_blank" class="btn primary">💬 Dołącz na Discord</a>
+        <a href="https://discord.gg/VM4bPqwFyc" target="_blank" class="btn primary">💬 Dołącz na Discord</a>
       </div>
     </div>
   </header>
@@ -293,6 +352,7 @@
   </footer>
 
   <script>
+    // Rok w stopce + kopiuj IP
     document.getElementById('year').textContent = new Date().getFullYear();
     const copyBtn = document.getElementById('copyIp');
     copyBtn?.addEventListener('click', async () => {
@@ -304,6 +364,33 @@
         alert('Skopiuj ręcznie: nexario.pl');
       }
     });
+
+    // Hamburger & menu mobilne
+    const burger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('backdrop');
+
+    function openMenu(){
+      burger.classList.add('active');
+      burger.setAttribute('aria-expanded','true');
+      mobileMenu.classList.add('open');
+      backdrop.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded','false');
+      mobileMenu.classList.remove('open');
+      backdrop.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
+    });
+    backdrop.addEventListener('click', closeMenu);
+    // zamykanie po kliknięciu w link
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   </script>
 
 </body>
