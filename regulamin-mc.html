@@ -1,40 +1,157 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Regulamin Minecraft — Nexario.pl</title>
-  <link rel="icon" type="image/png" href="https://i.imgur.com/lGJhDS0.png">
+  <meta name="description" content="Regulamin serwera Minecraft Nexario.pl — zasady, kultura, zakazy i sankcje.">
+  <meta property="og:title" content="Regulamin Minecraft — Nexario.pl">
+  <meta property="og:image" content="https://i.imgur.com/lGJhDS0.png">
+  <link rel="icon" href="https://i.imgur.com/lGJhDS0.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-    body{margin:0;font-family:'Inter',sans-serif;background:radial-gradient(circle at top,#0e0f10 0%,#0a0a0a 100%);color:#fff;}
-    header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(10,10,10,.6);backdrop-filter:blur(6px);position:fixed;width:100%;top:0;z-index:10;}
-    .menu-btn{cursor:pointer;display:flex;flex-direction:column;gap:5px;}
-    .menu-btn div{width:25px;height:3px;background:#f5c148;border-radius:2px;}
-    nav{position:fixed;top:0;left:-250px;width:220px;height:100vh;background:rgba(20,20,20,.98);box-shadow:2px 0 10px rgba(0,0,0,.5);padding-top:70px;transition:.4s;z-index:9;}
-    nav.active{left:0;}
-    nav a{display:block;color:#fff;text-decoration:none;padding:15px 25px;font-size:17px;transition:.3s;}
-    nav a:hover{background:#f5c148;color:#000;}
-    main{max-width:850px;margin:120px auto 60px;padding:0 20px;}
-    h1{color:#f5c148;text-align:center;font-weight:800;margin-bottom:30px;}
-    h2{color:#f5c148;margin-top:30px;}
+    :root {
+      --bg:#0b0c10;--panel:#111317;--muted:#a7acb5;--text:#f6f7fb;--brand:#f5c148;
+      --card:#13161c;--card-2:#0f1217;--stroke:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body {
+      font-family:'Inter',sans-serif;
+      background: radial-gradient(800px 600px at 70% -10%, rgba(245,193,72,.15), transparent 60%), var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+
+    /* Pasek */
+    header {
+      background: rgba(11,12,16,.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--stroke);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .topbar {
+      max-width: 1150px;
+      margin: 0 auto;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      gap: 40px;
+      position: relative;
+    }
+    .logo {
+      display:flex;align-items:center;gap:14px;
+    }
+    .logo img {
+      width:50px;height:auto;filter:drop-shadow(0 0 10px rgba(245,193,72,.35));
+    }
+    .logo b{font-weight:800;font-size:21px;}
+    .logo small{display:block;font-size:13px;color:var(--muted);}
+
+    .nav-links {
+      display:flex;align-items:center;gap:26px;font-weight:600;
+    }
+    .nav-links a {
+      color:var(--text);text-decoration:none;padding:8px 12px;border-radius:10px;transition:.25s;
+      display:inline-flex;align-items:center;gap:6px;
+    }
+    .nav-links a:hover{background:rgba(245,193,72,.18);transform:translateY(-1px);}
+
+    .btn.primary {
+      background:linear-gradient(180deg, rgba(245,193,72,.35), rgba(207,143,43,.25));
+      border:1px solid rgba(245,193,72,.4);
+      border-radius:12px;
+      padding:10px 16px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:600;
+      transition:.25s;
+    }
+    .btn.primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(245,193,72,.3);}
+
+    /* Menu mobilne */
+    .hamburger{
+      display:none;width:44px;height:44px;border-radius:10px;
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      flex-direction:column;align-items:center;justify-content:center;
+      gap:5px;cursor:pointer;
+    }
+    .hamburger span{width:20px;height:2px;background:var(--brand);border-radius:2px;}
+    .mobile-menu{
+      position:fixed;top:0;left:-100%;height:100vh;width:80%;max-width:320px;
+      background:#111317;padding:80px 20px;transition:.3s;z-index:999;
+      display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--stroke);
+    }
+    .mobile-menu a{
+      display:flex;align-items:center;gap:10px;padding:14px 12px;border-radius:10px;
+      background:linear-gradient(180deg,var(--card),var(--card-2));
+      border:1px solid var(--stroke);color:var(--text);text-decoration:none;
+    }
+    .mobile-menu.open{left:0;}
+    .backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,.45);
+      opacity:0;pointer-events:none;transition:.25s;z-index:998;
+    }
+    .backdrop.show{opacity:1;pointer-events:auto;}
+
+    main {
+      max-width:850px;
+      margin:120px auto 60px;
+      padding:0 20px;
+    }
+    h1{color:var(--brand);text-align:center;font-weight:800;margin-bottom:30px;}
+    h2{color:var(--brand);margin-top:30px;}
     ol{padding-left:25px;}
     li{color:#ddd;line-height:1.7;font-size:16px;}
     .buttons{text-align:center;margin-top:40px;}
-    .buttons a{display:inline-block;margin:10px;background:#f5c148;color:#000;padding:12px 28px;border-radius:10px;font-weight:600;text-decoration:none;transition:.3s;}
+    .buttons a{display:inline-block;margin:10px;background:var(--brand);color:#000;padding:12px 28px;border-radius:10px;font-weight:600;text-decoration:none;transition:.3s;}
     .buttons a:hover{background:#ffda70;transform:scale(1.05);}
     footer{text-align:center;color:#666;font-size:14px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.1);}
+
+    @media(max-width:900px){
+      .nav-links{display:none;}
+      .hamburger{display:flex;position:absolute;left:16px;top:50%;transform:translateY(-50%);}
+      .logo{position:absolute;left:50%;transform:translateX(-50%);}
+      .logo img{width:42px;}
+      .btn.primary{display:none;}
+    }
   </style>
 </head>
 <body>
-  <header><div class="menu-btn" onclick="toggleMenu()"><div></div><div></div><div></div></div><h2 style="color:#f5c148;font-weight:800;">Nexario.pl</h2></header>
-  <nav id="menu">
-    <a href="/">🏠 Strona główna</a>
-    <a href="https://sklep.nexario.pl">🛒 ItemShop</a>
-    <a href="/regulamin-mc.html">📜 Regulamin Minecraft</a>
-    <a href="/regulamin-dc.html">💬 Regulamin Discord</a>
-    <a href="https://dc.nexario.pl" target="_blank">🌐 Discord</a>
+
+  <div class="backdrop" id="backdrop"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="https://nexariopl.github.io/Nexario/">🏠 Strona główna</a>
+    <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
+    <a href="regulamin-mc.html">📜 Regulamin Minecraft</a>
+    <a href="regulamin-dc.html">💬 Regulamin Discord</a>
+    <a href="https://discord.gg/VM4bPqwFyc" target="_blank">💬 Discord</a>
   </nav>
+
+  <header>
+    <div class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <div class="logo">
+        <img src="https://i.imgur.com/lGJhDS0.png" alt="Logo Nexario">
+        <div>
+          <b>Nexario.pl</b>
+          <small>Minecraft server</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="https://nexariopl.github.io/Nexario/">🏠 Strona główna</a>
+        <a href="https://sklep.nexario.pl" target="_blank">🛒 ItemShop</a>
+        <a href="regulamin-mc.html">📜 Regulamin MC</a>
+        <a href="regulamin-dc.html">💬 Regulamin DC</a>
+      </nav>
+      <a href="https://discord.gg/VM4bPqwFyc" target="_blank" class="btn primary">💬 Dołącz na Discord</a>
+    </div>
+  </header>
+
   <main>
     <h1>🎮 Regulamin serwera Minecraft – Nexario.pl</h1>
     <h2>§1. Postanowienia ogólne</h2>
@@ -66,14 +183,30 @@
     <ol>
       <li>Administracja ma prawo karać według własnego uznania.</li>
       <li>Kary mogą obejmować mute, kick, ban czasowy lub permanentny.</li>
-      <li>Gracz może odwołać się od kary na Discordzie: <a href="https://dc.nexario.pl" style="color:#f5c148;">dc.nexario.pl</a>.</li>
+      <li>Gracz może odwołać się od kary na Discordzie: <a href="https://discord.gg/VM4bPqwFyc" style="color:var(--brand);">discord.gg/VM4bPqwFyc</a>.</li>
     </ol>
     <div class="buttons">
-      <a href="/">🏠 Powrót na stronę główną</a>
-      <a href="https://dc.nexario.pl" target="_blank">💬 Discord</a>
+      <a href="https://nexariopl.github.io/Nexario/">🏠 Powrót na stronę główną</a>
+      <a href="https://discord.gg/VM4bPqwFyc" target="_blank">💬 Discord</a>
     </div>
   </main>
+
   <footer>© 2025 Nexario.pl — Wszelkie prawa zastrzeżone.</footer>
-  <script>function toggleMenu(){document.getElementById('menu').classList.toggle('active');}</script>
+
+  <script>
+    const burger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('backdrop');
+    burger.addEventListener('click',()=>{
+      burger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      backdrop.classList.toggle('show');
+    });
+    backdrop.addEventListener('click',()=>{
+      burger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      backdrop.classList.remove('show');
+    });
+  </script>
 </body>
 </html>
