@@ -229,5 +229,19 @@
       backdrop.classList.remove('show');
     });
   </script>
+
+<script>
+  // blokada prawego
+  document.addEventListener("contextmenu", e => e.preventDefault());
+
+  // blokada skrótów
+  document.onkeydown = function(e) {
+    if (e.key === "F12") return false;
+    if (e.ctrlKey && e.key === "U") return false;
+    if (e.ctrlKey && e.shiftKey &&
+        (e.key === "I" || e.key === "C" || e.key === "J")) return false;
+  };
+</script>
+  
 </body>
 </html>
